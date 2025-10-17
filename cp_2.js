@@ -10,3 +10,14 @@ return data;
 
 })
 }
+
+async function fetchProductsAsync() {
+    try{
+        const res= await fetch('https://www.course-api.com/javascript-store-products')
+        const data= await res.json()
+        return data
+    }catch (err){
+        handleError(err)
+        return null
+    }
+}
