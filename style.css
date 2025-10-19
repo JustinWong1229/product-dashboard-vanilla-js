@@ -1,0 +1,109 @@
+:root {
+    --indigo: #1E3A8A;     
+    --amber: #F59E0B;      
+    --white: #FFFFFF;
+    --text-dark: #111827;     
+    --link-hover: #F59E0B;    
+  }
+  
+  body {
+    font-family: 'Montserrat', 'Segoe UI', Tahoma, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--white);
+    color: var(--text-dark);
+    line-height: 1.6;
+  }
+  
+  header {
+    background-color: var(--indigo);
+    color: var(--white);
+    padding: 2rem;
+    text-align: center;
+  }
+  
+  header h1 {
+    margin: 0;
+    font-size: 2.5rem;
+  }
+  
+  header p {
+    font-size: 1rem;
+    margin-top: 0.5rem;
+  }
+  
+  main {
+    max-width: 900px;
+    margin: 2rem auto;
+    padding: 0 1.5rem;
+  }
+  
+  section {
+    margin-bottom: 2rem;
+  }
+  
+  h2 {
+    color: var(--indigo);
+    border-bottom: 2px solid var(--amber);
+    padding-bottom: 0.3rem;
+  }
+  
+  ul {
+    list-style-type: none;
+    padding-left: 0;
+  }
+  
+  ul li {
+    margin-bottom: 0.5rem;
+  }
+  
+  a {
+    color: var(--indigo);
+    text-decoration: none;
+  }
+  
+  a:hover {
+    color: var(--link-hover);
+    text-decoration: underline;
+  }
+  
+  footer {
+    background-color: var(--indigo);
+    color: var(--white);
+    text-align: center;
+    padding: 1rem;
+    margin-top: 2rem;
+  }
+  
+  .contact-info li {
+    margin-bottom: 0.5rem;
+  }
+
+  #comments {
+    width: 600px;
+    height: 140px;
+    padding: 8px;
+  }
+  #username {
+    width: 700px;
+    height: 25px;
+    padding: 8px;
+  }
+  #email {
+    width: 700px;
+    height: 25px;
+    padding: 8px;
+  }
+#product-container.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 16px;
+}
+.product-card {
+  border: 1px solid #e5e7eb; border-radius: 12px; padding: 12px;
+  box-shadow: 0 1px 2px rgba(0,0,0,.04); transition: transform .15s, box-shadow .15s;
+}
+.product-card:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(0,0,0,.08); }
+.product-image { width: 100%; height: 140px; object-fit: cover; border-radius: 8px; }
+.product-name { margin-top: 8px; font-weight: 600; }
+.product-price { color: #111827; }

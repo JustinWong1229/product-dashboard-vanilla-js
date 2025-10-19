@@ -1,8 +1,8 @@
 function fetchProductsThen(){
     return fetch('https://www.course-api.com/javascript-store-products')
     .then((res)=>res.json())
-    .then((data)=>{data.forEach(product =>{
-        console.log(product.name);
+    .then((data)=>{data.forEach(p =>{
+        console.log(p.fields.name);
     });
 return data;
 })
@@ -10,11 +10,15 @@ return data;
 
 })
 }
-
+function getImageUrl (fields) {
+    const img = fields.image[0];
+    return img.thumbnails.small.url || img.url || '';
+}
 async function fetchProductsAsync() {
     try{
         const res= await fetch('https://www.course-api.com/javascript-store-products')
         const data= await res.json()
+        displayProducts(data)
         return data
     }catch (err){
         handleError(err)
@@ -22,18 +26,27 @@ async function fetchProductsAsync() {
     }
 }
 
+
 function displayProducts(products) {
-    container.innerhtml= "";
-    product.slice(0,5).forEach((p)=>{const{name, price}=p.field; 
-const imageUrl = getImageUrl(p.field);
+    const container = document.querySelector('#product-container');
+    container.innerHTML= "";
+    products.slice(0,5).forEach((p)=>{const{name, price}=p.fields; 
+const imageUrl = getImageUrl(p.fields);
 const card = document.createElement("div")
-card.classname = "Product-card";
+card.className = "product-card";
 card.innerHTML=`
-<img class="product-image" src="${imageUrl}" alt="${escapeHTML(name)}">
-<div class="product-name">${escapeHTML(name)}</div>
+<img class="product-image" src="${imageUrl}" alt="${name}">
+<div class="product-name">${name}</div>
 <div class="product-price">$${(price/100).toFixed(2)}</div>
 `;
 container.appendChild(card);
 });
 statusEl.textContent = "Here are the Products"
 }
+
+function handleError(err) {
+    console.error('Error:', err);
+}
+
+fetchProductsThen();
+fetchProductsAsync();
