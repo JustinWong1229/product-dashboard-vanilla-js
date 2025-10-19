@@ -29,6 +29,7 @@ async function fetchProductsAsync() {
 
 function displayProducts(products) {
     const container = document.querySelector('#product-container');
+    const statusEl = document.querySelector('#status') 
     container.innerHTML= "";
     products.slice(0,5).forEach((p)=>{const{name, price}=p.fields; 
 const imageUrl = getImageUrl(p.fields);
@@ -41,7 +42,7 @@ card.innerHTML=`
 `;
 container.appendChild(card);
 });
-statusEl.textContent = "Here are the Products"
+statusEl.textContent = "Here is five our our wonderful products!"
 }
 
 function handleError(err) {
